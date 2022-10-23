@@ -11,12 +11,18 @@ const allRouters = require('./routes/index');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const errorHandler = require('./middlewares/errorHandler');
 
+const { NODE_ENV, HOST_DB } = process.env;
+
 const app = express();
 app.listen(3000);
 
-mongoose.connect('mongodb://localhost:27017/moviesdb', {
+mongoose.connect(NODE_ENV === 'production' ? HOST_DB : 'mongodb://localhost:27017/moviesdb', {
   useNewUrlParser: true,
 });
+
+// mongoose.connect('mongodb://localhost:27017/moviesdb', {
+//   useNewUrlParser: true,
+// });
 
 // app.use(cors({
 //   origin: [
