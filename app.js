@@ -2,7 +2,6 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const cookieParser = require('cookie-parser');
 const helmet = require('helmet');
 const { errors } = require('celebrate');
 // const cors = require('cors');
@@ -34,7 +33,6 @@ mongoose.connect(NODE_ENV === 'production' ? HOST_DB : 'mongodb://localhost:2701
 
 app.use(helmet());
 app.use(bodyParser.json());
-app.use(cookieParser());
 
 app.use(requestLogger);
 app.use(allRouters);

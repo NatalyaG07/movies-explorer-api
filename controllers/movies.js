@@ -18,7 +18,6 @@ module.exports.createMovie = (req, res, next) => {
     description,
     image,
     trailerLink,
-    link,
     thumbnail,
     movieId,
     nameRU,
@@ -33,7 +32,6 @@ module.exports.createMovie = (req, res, next) => {
     description,
     image,
     trailerLink,
-    link,
     thumbnail,
     movieId,
     nameRU,
@@ -44,7 +42,6 @@ module.exports.createMovie = (req, res, next) => {
     .catch((err) => {
       if (err.name === 'ValidationError') {
         next(new DataError('Переданы некорректные данные'));
-        console.log(err);
       } else {
         next(err);
       }
