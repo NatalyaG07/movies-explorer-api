@@ -6,7 +6,7 @@ const helmet = require('helmet');
 const { errors } = require('celebrate');
 // const cors = require('cors');
 
-const allRouters = require('./routes/index');
+const allRouters = require('./routes');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const errorHandler = require('./middlewares/errorHandler');
 
@@ -18,10 +18,6 @@ app.listen(3000);
 mongoose.connect(NODE_ENV === 'production' ? HOST_DB : 'mongodb://localhost:27017/moviesdb', {
   useNewUrlParser: true,
 });
-
-// mongoose.connect('mongodb://localhost:27017/moviesdb', {
-//   useNewUrlParser: true,
-// });
 
 // app.use(cors({
 //   origin: [
