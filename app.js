@@ -23,8 +23,8 @@ app.use(cors({
   origin: [
     // 'https://mesto.natalya.g.nomoredomains.icu',
     // 'http://mesto.natalya.g.nomoredomains.icu',
-    'http://localhost:3000',
-    'https://diploma.natalya.g.nomoredomains.icu',
+    'localhost:3000',
+    'http://diploma.natalya.g.nomoredomains.icu',
     'https://diploma.natalya.g.nomoredomains.icu',
   ],
   credentials: true,
