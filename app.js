@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const helmet = require('helmet');
 const { errors } = require('celebrate');
-// const cors = require('cors');
+const cors = require('cors');
 
 const allRouters = require('./routes');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
@@ -19,13 +19,16 @@ mongoose.connect(NODE_ENV === 'production' ? HOST_DB : 'mongodb://localhost:2701
   useNewUrlParser: true,
 });
 
-// app.use(cors({
-//   origin: [
-//     'https://mesto.natalya.g.nomoredomains.icu',
-//     'http://mesto.natalya.g.nomoredomains.icu',
-//   ],
-//   credentials: true,
-// }));
+app.use(cors({
+  origin: [
+    // 'https://mesto.natalya.g.nomoredomains.icu',
+    // 'http://mesto.natalya.g.nomoredomains.icu',
+    'http://localhost:3000',
+    'https://diploma.natalya.g.nomoredomains.icu',
+    'https://diploma.natalya.g.nomoredomains.icu',
+  ],
+  credentials: true,
+}));
 
 app.use(helmet());
 app.use(bodyParser.json());
